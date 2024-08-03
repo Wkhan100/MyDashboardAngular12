@@ -1,0 +1,20 @@
+-Reactive form use import this in app.module.ts
+    import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+    import { HttpClient, HttpClientModule } from "@angular/common/http";
+
+add this in ts file
+    loginFrm: FormGroup;
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService
+  ) {
+    this.loginFrm = this.fb.group({
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+    })
+   }
+
+in html file
+    <form [formGroup]="loginFrm" (ngSubmit)="signIn()">
+        <input type="text" name="username" formControlName="username" class="form-control" placeholder="enter username">
+
