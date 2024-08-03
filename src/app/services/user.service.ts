@@ -25,4 +25,14 @@ export class UserService {
       catchError(this.handleError)
     );
   }
+  createUser(data:any): Observable<any> {
+    let body={
+      username: data.username,
+      password: data.password
+    }
+    const url = `${this.baseUrl}users`;
+    return this.http.post<any>(url, body).pipe(
+      catchError(this.handleError)
+    )
+  }
 }

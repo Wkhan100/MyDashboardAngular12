@@ -9,6 +9,7 @@ import { UserService } from '../services/user.service';
 })
 export class LoginComponent implements OnInit {
   loginFrm: FormGroup;
+  userdata: any;
   constructor(
     private fb: FormBuilder,
     private userService: UserService
@@ -26,11 +27,15 @@ export class LoginComponent implements OnInit {
   getUsers(){
     this.userService.getAllUsers().subscribe((res:any)=>{
       console.log(res);
+      this.userdata = res;
     })
   }
   signIn(){
+    const data = this.loginFrm.value;
     const currentData = this.loginFrm.value;
-
+    this.userService.createUser(data).subscribe((res:any)=>{
+      console.log(res);
+    })
     console.log(currentData);
   }
 }

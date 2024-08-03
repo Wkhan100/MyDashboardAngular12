@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-  
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
