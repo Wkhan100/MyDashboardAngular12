@@ -1,16 +1,4 @@
-<div style="background-color: gainsboro;">
-    <!-- ======= Top Bar ======= -->
-    <app-header></app-header>
-
-    <!-- ======= Header ======= -->
-
-    <!-- End Header -->
-
-
-    <!-- ======= Hero Section ======= -->
-    <router-outlet></router-outlet>
-    <!-- End Main -->
-
-    <!-- ======= Footer ======= -->
-    <app-footer></app-footer>
-</div>
+<!-- app.component.html -->
+<app-header *ngIf="!isLoginPage"></app-header>
+<router-outlet></router-outlet>
+<app-footer *ngIf="!isLoginPage"></app-footer>

@@ -9,7 +9,7 @@ import { UserComponent } from './user/user.component';
     UserComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ]
 })
 export class UserModule { }

@@ -38,4 +38,8 @@ export class LoginComponent implements OnInit {
     })
     console.log(currentData);
   }
+
+  cancel(): void {
+    // Handle cancel action (e.g., navigate away or clear form)
+  }
 }
