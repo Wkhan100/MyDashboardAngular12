@@ -7,7 +7,7 @@ import { Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = 'http://localhost:3000/';
+  private baseUrl = 'http://localhost:3002/';
 
   constructor(private http: HttpClient) { }
 
@@ -25,12 +25,23 @@ export class UserService {
       catchError(this.handleError)
     );
   }
-  createUser(data:any): Observable<any> {
+  signIn(data:any): Observable<any> {
     let body={
       username: data.username,
       password: data.password
     }
-    const url = `${this.baseUrl}users`;
+    const url = `${this.baseUrl}login`;
+    return this.http.post<any>(url, body).pipe(
+      catchError(this.handleError)
+    )
+  }
+  signUp(data:any): Observable<any> {
+    let body={
+      username: data.username,
+      email: data.email,
+      password: data.password
+    }
+    const url = `${this.baseUrl}signup`;
     return this.http.post<any>(url, body).pipe(
       catchError(this.handleError)
     )

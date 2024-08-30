@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss']
 })
-export class LoginComponent implements OnInit {
-  loginFrm: FormGroup;
+export class SignupComponent implements OnInit {
+
+  signUpFrm: FormGroup;
   userdata: any;
 
   constructor(
@@ -17,26 +18,20 @@ export class LoginComponent implements OnInit {
     private userService: UserService,
     private router: Router
   ) {
-    this.loginFrm = this.fb.group({
+    this.signUpFrm = this.fb.group({
       username: ['', [Validators.required]],
+      email: ['', [Validators.required]],
       password: ['', [Validators.required]],
     })
    }
-
   ngOnInit(): void {
-    this.getUsers()
   }
+  
 
-  getUsers(){
-    this.userService.getAllUsers().subscribe((res:any)=>{
-      console.log(res);
-      this.userdata = res;
-    })
-  }
-  signIn(){
-    const data = this.loginFrm.value;
-    const currentData = this.loginFrm.value;
-    this.userService.signIn(data).subscribe((res:any)=>{
+  signUp(){
+    const data = this.signUpFrm.value;
+    const currentData = this.signUpFrm.value;
+    this.userService.signUp(data).subscribe((res:any)=>{
       console.log(res);
       this.router.navigateByUrl('/home')
     })

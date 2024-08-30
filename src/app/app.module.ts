@@ -10,6 +10,8 @@ import { HeaderComponent } from './header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { UserModule } from './user/user.module';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { UserModule } from './user/user.module';
     LoginComponent,
     HomeComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    NotfoundComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

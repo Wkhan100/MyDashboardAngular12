@@ -1,6 +1,20 @@
 {
   "users": [
-    
+    {
+      "id": "25a5",
+      "username": "admin",
+      "password": "admin"
+    },
+    {
+      "id": "36e9",
+      "username": "admin",
+      "password": "admin"
+    },
+    {
+      "id": "d415",
+      "username": "admin",
+      "password": "admin"
+    }
   ],
   "posts": [
     {
